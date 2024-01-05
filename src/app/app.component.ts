@@ -11,7 +11,7 @@ import { version, commitHash, buildDate } from '../environments/version';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'buildversion';
+  title = 'add-version-to-angular-build';
   versionInfo = { version, commitHash, buildDate };
   constructor() {
     console.log(this.versionInfo);

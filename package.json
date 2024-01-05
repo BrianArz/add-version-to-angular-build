@@ -1,5 +1,5 @@
 {
-  "name": "buildversion",
+  "name": "add-version-to-angular-build",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
