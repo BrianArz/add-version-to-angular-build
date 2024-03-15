@@ -1,12 +1,14 @@
 const fs = require("fs");
 const execSync = require("child_process").execSync;
 
-const packageJson = require("./package.json");
-const commitHash = execSync("git rev-parse HEAD").toString().trim();
+const gitVersion = execSync("git rev-list --count --all").toString().trim();
+const gitDiff = execSync("git diff --name-only HEAD").toString().trim();
+const isDirty = gitDiff ? '1' : '0';
+const commitHash = execSync("git rev-parse HEAD").toString().trim().substring(0,6);
 const buildDate = new Date().toISOString();
 
 const content = `
-export const version = '${packageJson.version}';
+export const version = '1.0.${gitVersion}.${isDirty}';
 export const buildDate = '${buildDate}';
 export const commitHash = '${commitHash}';
 `;
